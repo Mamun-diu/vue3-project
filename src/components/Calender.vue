@@ -49,8 +49,6 @@ export default {
             }
             
             
-            console.log(this.currentMonth+1);
-            
             
         },
         prev(){
@@ -60,7 +58,6 @@ export default {
             }else{
                 this.currentMonth -= 1;
             }
-            console.log(this.currentMonth+1);
         },
         currentDateClass(num){
             // console.log(new Date(this.currentYear,this.currentMonth,num).toDateString());
@@ -82,7 +79,5 @@ export default {
 </script>
 
 <style>
-    .calender{
-        
-    }
+    
 </style>

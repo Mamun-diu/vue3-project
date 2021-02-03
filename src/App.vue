@@ -1,20 +1,21 @@
 <template>
   <AppHeader />
   <div class="w-full">
+    <router-view></router-view>
     <!-- <DcHeroes /> -->
-    <Calender />
+    <!-- <Calender /> -->
   </div>
 </template>
 
 <script>
 import AppHeader from './components/AppHeader.vue'
 // import DcHeroes from './components/DcHeroes.vue'
-import Calender from './components/Calender.vue'
+// import Calender from './components/Calender.vue'
 export default {
   components:{
         AppHeader,
         // DcHeroes,
-        Calender,
+        // Calender,
     },
 }
 </script>
