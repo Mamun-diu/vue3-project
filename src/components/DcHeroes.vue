@@ -6,13 +6,13 @@
       <ul>
         <li class="flex justify-between" v-for="(hero, index) in dcHeroes" :key="hero.name">
           <div>{{hero.name}}  </div>
-          <button @click="remove(index)">x</button>
+          <button class="hover:text-red-600 border-none outline-none focus-within:outline-none" @click="remove(index)">x</button>
         </li>
         
       </ul>
       <form class="mt-10" @submit.prevent="addHero">
         <input class="border rounded p-2 outline-white" v-model='newHero' placeholder="Type hero name here">
-        <button class="border rounded bg-gradient-to-r from-red-500 to-pink-500 p-2 text-white outline-none" type="submit" >Add Hero</button>
+        <button class="border rounded bg-gradient-to-r from-red-500 to-pink-500 p-2 text-white outline-none " type="submit" >Add Hero</button>
       </form>
     
     </div>
