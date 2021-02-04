@@ -9,8 +9,8 @@
           <p class="p-2 w-12 h-8" v-for="day in days" :key="day">{{ day }} </p>
       </section>
       <section class="flex flex-wrap">
-          <p style="width:14.28%" class="p-2  h-8 " v-for="num in  startDay() " :key="num"> </p>
-          <p style="width:14.28%" class="p-2  h-8 " v-for="num in  daysInMonth(currentYear,(currentMonth+1)) " :key="num" :class="currentDateClass(num)?'text-yellow-600':''">{{ num }} </p>
+          <p style="width:14%; margin-left:0.25%" class="p-2  h-8" v-for="num in  startDay() " :key="num"> </p>
+          <p style="width:14%; margin-left:0.25%" class="p-2  h-8" v-for="num in  daysInMonth(currentYear,(currentMonth+1)) " :key="num" :class="currentDateClass(num)?'text-yellow-600':''">{{ num }} </p>
       </section>
       <section class="flex justify-between my-4">
           <button class="ml-2 bg-green-500 py-1 px-4 rounded text-white" v-on:click="prev">Prev</button>

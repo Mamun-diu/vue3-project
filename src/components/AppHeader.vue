@@ -14,6 +14,7 @@ export default {
           {title:'Dc Heroes',to:'/dc-heroes'},
           {title:'Calender',to:'/calender'},
           {title:'Markdown',to:'/mark-down'},
+          {title:'Slider',to:'/slider'},
         ]
 
       }
