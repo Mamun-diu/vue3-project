@@ -11,7 +11,7 @@
         
       </ul>
       <form class="mt-10" @submit.prevent="addHero">
-        <input class="border rounded p-2 outline-white" v-model='newHero' placeholder="Type hero name here">
+        <input ref="dcheroesinput" class="border rounded p-2 outline-white" v-model='newHero' placeholder="Type hero name here">
         <button class="border rounded bg-gradient-to-r from-red-500 to-pink-500 p-2 text-white outline-none " type="submit" >Add Hero</button>
       </form>
     
@@ -28,6 +28,9 @@ export default {
     heroesCount(){
       return this.dcHeroes.length;
     },
+  },
+  mounted(){
+    this.$refs.dcheroesinput.focus();
   },
   data(){
     return {

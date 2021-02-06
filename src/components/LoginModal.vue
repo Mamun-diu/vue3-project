@@ -1,6 +1,6 @@
 <template>
 
-    <section @click="$emit('close-login')" class="z-20 h-screen w-screen bg-gray-500 fixed top-0 opacity-50">
+    <section @click="close" class="z-20 h-screen w-screen bg-gray-500 fixed top-0 opacity-50">
 
     </section>
     <div class=" absolute inset-0">
@@ -19,7 +19,13 @@
                             <input v-model="form.pass" class="rounded border shadow p-2 w-full focus:outline-white" type="password" placeholder="Enter your password ">
                         </div>
                         <div class="mt-3 flex w-full">
-                            <button class="px-3 py-1 rounded text-white shadow bg-gradient-to-l from-green-400 to-green-600 ml-auto hover:to-green-800 hover:from-green-600  focus:outline-none" type="submit">Submit</button>
+                            <button 
+                            class="px-3 py-1 w-full rounded text-white shadow bg-gradient-to-l from-green-400 to-green-600 ml-auto hover:to-green-800 hover:from-green-600  focus:outline-none" 
+                            type="submit"
+                            >
+                            <span v-if="!isLoading">Login</span>
+                            <span v-else>&#x231b;</span>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -37,27 +43,37 @@
                 form:{
                     email:'admin@microdeveloperbd.com',
                     pass:'password',
-                }
+                    
+                },
+                isLoading : false,
             }
         },
         methods:{
             submit(){
                 //submit the form
+                this.isLoading = true;
                 firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.pass)
-                .then((userCredential) => {
+                .then(() => {
                     // Signed in
                     // var user = userCredential.user;
-                    console.log(userCredential);
-                    
+                    // console.log(userCredential);
+                    this.isLoading = false;
+                    this.form.email = '';
+                    this.form.pass = '';
+                    this.close();
                     // ...
                 })
                 .catch((error) => {
                     // var errorCode = error.code;
                     // var errorMessage = error.message;
                     console.log(error);
+                    this.isLoading = false;
                     
                 });
                 
+            },
+            close(){
+                this.$emit('close-login')
             }
         }
     }
